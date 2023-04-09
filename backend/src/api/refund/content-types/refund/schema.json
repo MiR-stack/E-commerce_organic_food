@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "refunds",
+  "info": {
+    "singularName": "refund",
+    "pluralName": "refunds",
+    "displayName": "refund",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "reason": {
+      "type": "text",
+      "required": true
+    },
+    "refunded_by": {
+      "type": "uid",
+      "default": "CS_",
+      "required": true
+    },
+    "products": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.refund-product"
+    },
+    "profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::profile.profile",
+      "inversedBy": "refunds"
+    }
+  }
+}

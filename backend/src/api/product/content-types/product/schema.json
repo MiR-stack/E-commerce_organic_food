@@ -1,0 +1,156 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 3
+    },
+    "permalink": {
+      "type": "string",
+      "unique": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "shortDescription": {
+      "type": "text",
+      "required": true,
+      "unique": false,
+      "minLength": 20
+    },
+    "description": {
+      "type": "richtext",
+      "minLength": 100,
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "salePrice": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "onSale": {
+      "type": "boolean",
+      "default": true
+    },
+    "purchaseable": {
+      "type": "boolean",
+      "default": true
+    },
+    "stockQuantity": {
+      "type": "integer"
+    },
+    "stockStatus": {
+      "type": "enumeration",
+      "enum": [
+        "available",
+        "stock out",
+        "coming soon"
+      ],
+      "default": "available"
+    },
+    "totalSales": {
+      "type": "integer",
+      "default": 0
+    },
+    "sku": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.weight"
+    },
+    "reviewsAllowed": {
+      "type": "boolean",
+      "default": true
+    },
+    "avarageRating": {
+      "type": "decimal",
+      "max": 5,
+      "min": 0
+    },
+    "ratingCount": {
+      "type": "integer"
+    },
+    "reletedProucts": {
+      "displayName": "relatedIds",
+      "type": "component",
+      "repeatable": true,
+      "component": "product.related-ids"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.images",
+      "required": true
+    },
+    "slug": {
+      "type": "customField",
+      "options": {
+        "pattern": "title"
+      },
+      "customField": "plugin::slug.slug"
+    },
+    "product_id": {
+      "type": "uid",
+      "default": "PR_",
+      "required": true,
+      "minLength": 4
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "products"
+    },
+    "variations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::variation.variation",
+      "mappedBy": "product"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "product"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order.order",
+      "inversedBy": "products"
+    }
+  }
+}

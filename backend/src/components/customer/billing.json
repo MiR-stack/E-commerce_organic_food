@@ -1,0 +1,62 @@
+{
+  "collectionName": "components_customer_billings",
+  "info": {
+    "displayName": "billing",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 12,
+      "minLength": 3
+    },
+    "lastName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 12,
+      "minLength": 3
+    },
+    "company": {
+      "type": "string",
+      "unique": true
+    },
+    "address1": {
+      "type": "string",
+      "required": true,
+      "minLength": 5
+    },
+    "address2": {
+      "type": "string",
+      "minLength": 5
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "postcode": {
+      "type": "integer",
+      "required": true
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "phone": {
+      "type": "integer",
+      "required": true,
+      "min": 5,
+      "max": 15
+    }
+  }
+}

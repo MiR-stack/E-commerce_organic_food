@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_related_ids",
+  "info": {
+    "displayName": "relatedIds"
+  },
+  "options": {},
+  "attributes": {
+    "productId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

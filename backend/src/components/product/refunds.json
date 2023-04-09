@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_refunds",
+  "info": {
+    "displayName": "refunds"
+  },
+  "options": {},
+  "attributes": {
+    "refund_id": {
+      "type": "string",
+      "required": true,
+      "default": "RF_"
+    }
+  }
+}

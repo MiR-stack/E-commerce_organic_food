@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_product_weights",
+  "info": {
+    "displayName": "weight"
+  },
+  "options": {},
+  "attributes": {
+    "weight": {
+      "type": "string"
+    }
+  }
+}

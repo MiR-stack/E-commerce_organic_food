@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_product_products",
+  "info": {
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "product_id": {
+      "type": "string",
+      "default": "PR_",
+      "required": true
+    },
+    "variation_id": {
+      "type": "string",
+      "default": "VR_"
+    },
+    "quantity": {
+      "type": "integer",
+      "default": 1,
+      "required": true
+    },
+    "subtotal": {
+      "type": "decimal",
+      "required": true
+    },
+    "sku": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

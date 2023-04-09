@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_product_refund_products",
+  "info": {
+    "displayName": "refund_product"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.product"
+    },
+    "refund_total": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

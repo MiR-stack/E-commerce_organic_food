@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_tags",
+  "info": {
+    "displayName": "tags",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "unique": false
+    }
+  }
+}

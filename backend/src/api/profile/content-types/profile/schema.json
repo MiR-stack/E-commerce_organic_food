@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profiles",
+  "info": {
+    "singularName": "profile",
+    "pluralName": "profiles",
+    "displayName": "Profile",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "firstname": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 12
+    },
+    "lastName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 12,
+      "minLength": 3
+    },
+    "billing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer.billing",
+      "required": true
+    },
+    "shipping": {
+      "type": "component",
+      "repeatable": true,
+      "component": "customer.billing"
+    },
+    "customer_id": {
+      "type": "uid",
+      "required": true,
+      "default": "CS_"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "profile"
+    },
+    "refunds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::refund.refund",
+      "mappedBy": "profile"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "profile"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "profile"
+    },
+    "store_review": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store-review.store-review",
+      "inversedBy": "profile"
+    }
+  }
+}
