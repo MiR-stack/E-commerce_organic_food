@@ -102,7 +102,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::product.product",
-      "inversedBy": "orders"
+      "mappedBy": "orders"
     }
   }
 }

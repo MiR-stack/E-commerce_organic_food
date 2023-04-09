@@ -34,6 +34,9 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "mappedBy": "tags"
+    },
+    "test": {
+      "type": "string"
     }
   }
 }

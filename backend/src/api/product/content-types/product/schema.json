@@ -18,9 +18,14 @@
       "unique": true,
       "minLength": 3
     },
-    "permalink": {
+    "slug": {
       "type": "string",
       "unique": true
+    },
+    "permalink": {
+      "type": "string",
+      "unique": true,
+      "default": "https://www.your-ecommerce-website.com/products/"
     },
     "featured": {
       "type": "boolean",
@@ -44,9 +49,6 @@
     "salePrice": {
       "type": "decimal"
     },
-    "discount": {
-      "type": "integer"
-    },
     "onSale": {
       "type": "boolean",
       "default": true
@@ -56,7 +58,9 @@
       "default": true
     },
     "stockQuantity": {
-      "type": "integer"
+      "type": "integer",
+      "default": 1,
+      "required": true
     },
     "stockStatus": {
       "type": "enumeration",
@@ -67,13 +71,6 @@
       ],
       "default": "available"
     },
-    "totalSales": {
-      "type": "integer",
-      "default": 0
-    },
-    "sku": {
-      "type": "string"
-    },
     "weight": {
       "type": "component",
       "repeatable": true,
@@ -83,38 +80,18 @@
       "type": "boolean",
       "default": true
     },
-    "avarageRating": {
-      "type": "decimal",
-      "max": 5,
-      "min": 0
-    },
-    "ratingCount": {
-      "type": "integer"
-    },
-    "reletedProucts": {
-      "displayName": "relatedIds",
+    "attributes": {
+      "displayName": "attributes",
       "type": "component",
-      "repeatable": true,
-      "component": "product.related-ids"
+      "repeatable": false,
+      "component": "product.attributes",
+      "required": true
     },
     "images": {
       "type": "component",
       "repeatable": true,
       "component": "product.images",
       "required": true
-    },
-    "slug": {
-      "type": "customField",
-      "options": {
-        "pattern": "title"
-      },
-      "customField": "plugin::slug.slug"
-    },
-    "product_id": {
-      "type": "uid",
-      "default": "PR_",
-      "required": true,
-      "minLength": 4
     },
     "category": {
       "type": "relation",
@@ -151,6 +128,46 @@
       "relation": "manyToMany",
       "target": "api::order.order",
       "inversedBy": "products"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "relatedProducts"
+    },
+    "relatedProducts": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "products"
+    },
+    "sku": {
+      "type": "string",
+      "required": true
+    },
+    "discount": {
+      "type": "decimal",
+      "max": 100,
+      "min": 0,
+      "default": 0
+    },
+    "totalSales": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "avarageRating": {
+      "type": "decimal",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    },
+    "ratingCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "productId": {
+      "type": "uid"
     }
   }
 }
